@@ -1,0 +1,17 @@
+<div class="alert alert-info" *ngIf="!auth.authenticated">You must <button class="btn btn-primary"
+    routerLink="../auth"><i class="fa fa-sign-in"></i> Login</button> to sumbit an Application Form.</div>
+<div class="card" style="margin-bottom: 10px" *ngIf="auth.authenticated">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">New FMDP Application Process</h5>
+      <div class="card bg-light p-3">
+        <formio src="{{ config.appUrl }}/savcaFmdpApplicationForm"></formio>
+        <!-- <body>
+            <script
+                type="text/javascript">(function a(d, w, u) { var h = d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.type = "text/javascript"; s.src = "https://portal.form.io/lib/seamless/seamless.parent.min.js"; s.onload = function b() { var f = d.getElementById("formio-form-5d3cca5b4291aa3e63800ef0"); if (!f || (typeof w.seamless === u)) { return setTimeout(b, 100); } w.seamless(f, { fallback: false }).receive(function (d, e) { }); }; h.appendChild(s); })(document, window);</script>
+            <iframe id="formio-form-5d3cca5b4291aa3e63800ef0" style="width:100%;border:none;" height="600px"
+                src="https://formview.io/#/qywgqluqpffzdhj/savcafmdpapplicationform?iframe=1&header=0"></iframe>
+        </body> -->
+      </div>
+    </div>
+  </div>
