@@ -37,7 +37,15 @@ import './components/CheckMatrix';
         component: HomeComponent
       },
       {
+        path: 'savca-forms-app',
+        component: HomeComponent
+      },
+      {
         path: '#',
+        component: HomeComponent
+      },
+      {
+        path: '*',
         component: HomeComponent
       },
       {
