@@ -10,7 +10,7 @@ export class AuthComponent extends FormioAuthComponent {
   constructor(public service: FormioAuthService,  private router: Router) {
     super();
     this.service.onLogin.subscribe(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['/wizard']);
     });
   }
 }

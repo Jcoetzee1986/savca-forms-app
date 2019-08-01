@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormioAuthService } from 'angular-formio/auth';
 import { Router } from '@angular/router';
+import { FormioResources } from 'angular-formio/resource';
+import { FormioAuthService } from 'angular-formio/auth';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public auth: FormioAuthService, private router: Router) {
+  title = 'SAVCA FMDP Application Process';
+  constructor(
+    public auth: FormioAuthService,
+    private router: Router,
+    public resources: FormioResources
+  ) {
     this.auth.onLogin.subscribe(() => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/wizard']);
+    });
+
+    this.auth.onLogout.subscribe(() => {
+      this.router.navigate(['/auth/login']);
+    });
+
+    this.auth.onRegister.subscribe(() => {
+      this.router.navigate(['/wizard']);
     });
   }
 }

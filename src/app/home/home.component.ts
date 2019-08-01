@@ -1,7 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormioAppConfig } from 'angular-formio';
-import { PrismService } from '../Prism.service';
+import { FormioModule } from 'angular-formio';
 import { FormioAuthService } from 'angular-formio/auth';
 
 @Component({
@@ -9,16 +9,15 @@ import { FormioAuthService } from 'angular-formio/auth';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit {
+
   constructor(
     public config: FormioAppConfig,
-    public prism: PrismService,
     public auth: FormioAuthService,
     private router: Router
-  ) {
+  ) { }
 
+  ngOnInit() {
   }
-  ngAfterViewInit() {
-    this.prism.init();
-  }
+
 }

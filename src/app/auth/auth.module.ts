@@ -5,10 +5,22 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './login/login.component';
 import { FormioModule } from 'angular-formio';
 import { FormioAuth, FormioAuthRoutes } from 'angular-formio/auth';
+import { ResetMailerComponent } from './reset-mailer/reset-mailer.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 export const authRoutes = FormioAuthRoutes({
   auth: AuthComponent,
   login: LoginComponent
+});
+
+authRoutes[0].children.push({
+  path: 'mailer',
+  component: ResetMailerComponent
+});
+
+authRoutes[0].children.push({
+  path: 'reset',
+  component: ResetPasswordComponent
 });
 
 @NgModule({
@@ -16,8 +28,13 @@ export const authRoutes = FormioAuthRoutes({
     CommonModule,
     FormioModule,
     FormioAuth,
-    RouterModule.forChild(authRoutes)
+    RouterModule.forChild(FormioAuthRoutes())
   ],
-  declarations: [AuthComponent, LoginComponent]
+  declarations: [
+    AuthComponent,
+    LoginComponent,
+    ResetMailerComponent,
+    ResetPasswordComponent
+  ]
 })
 export class AuthModule { }

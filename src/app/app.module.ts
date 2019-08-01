@@ -1,63 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormioModule, FormioAppConfig } from 'angular-formio';
-import { FormioGrid } from 'angular-formio/grid';
-import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
-import { FormioResources } from 'angular-formio/resource';
-import { PrismService } from './Prism.service';
-
-import { AppConfig } from './config';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppConfig } from './config';
+import { FormioAppConfig } from 'angular-formio';
+import { FormioModule } from 'angular-formio';
+import { FormioResources } from 'angular-formio/resource';
+import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
 import { HomeComponent } from './home/home.component';
+import { WizardComponent } from './wizard/wizard.component';
+import { AuthModule } from './auth/auth.module';
 
 // Make sure we use fontawesome everywhere in Form.io renderers.
 const Formio = require('formiojs').Formio;
 Formio.icons = 'fontawesome';
 
-/**
- * Import the Custom component CheckMatrix.
- */
-import './components/CheckMatrix';
-
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    WizardComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
-    FormioModule,
-    FormioGrid,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: 'savca-forms-app',
-        component: HomeComponent
-      },
-      {
-        path: '#',
-        component: HomeComponent
-      },
-      {
-        path: '*',
-        component: HomeComponent
-      },
-      {
-        path: 'auth',
-        loadChildren: './auth/auth.module#AuthModule'
-      }
-    ], { useHash: true })
+    AppRoutingModule,
+    RouterModule,
+    FormioModule
   ],
   providers: [
-    PrismService,
-    FormioAuthService,
     FormioResources,
+    FormioAuthService,
     { provide: FormioAppConfig, useValue: AppConfig },
     {
       provide: FormioAuthConfig, useValue: {
