@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WizardComponent } from './wizard/wizard.component';
 import { ResetMailerComponent } from './auth/reset-mailer/reset-mailer.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { FMDPApplicationModule } from './fmdp-application/fmdp-application.module';
 import { AuthModule } from './auth/auth.module';
 
@@ -21,15 +22,24 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: WizardComponent
+    component: WizardComponent,
+    pathMatch: 'full'
   },
   {
     path: 'wizard',
     component: WizardComponent
   },
   {
+    path: 'mailer',
+    component: ResetMailerComponent
+  },
+  {
+    path: 'reset',
+    component: ResetPasswordComponent
+  },
+  {
     path: 'fmdp-application',
-    loadChildren: './fmdp-application/fmdp-application.module#FMDPApplicationModule'
+    loadChildren: () => FMDPApplicationModule//'./fmdp-application/fmdp-application.module#FMDPApplicationModule'
   }
 ];
 

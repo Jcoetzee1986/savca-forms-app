@@ -5,8 +5,8 @@ import { FormioAuthService } from 'angular-formio/auth';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'//,
+  //styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'SAVCA FMDP Application Process';

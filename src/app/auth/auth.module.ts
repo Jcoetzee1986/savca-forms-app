@@ -31,10 +31,10 @@ authRoutes[0].children.push({
     RouterModule.forChild(FormioAuthRoutes())
   ],
   declarations: [
-    AuthComponent,
+    /* AuthComponent,
     LoginComponent,
     ResetMailerComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent */
   ]
 })
 export class AuthModule { }

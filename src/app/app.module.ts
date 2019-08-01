@@ -10,7 +10,11 @@ import { FormioResources } from 'angular-formio/resource';
 import { FormioAuthService, FormioAuthConfig } from 'angular-formio/auth';
 import { HomeComponent } from './home/home.component';
 import { WizardComponent } from './wizard/wizard.component';
-import { AuthModule } from './auth/auth.module';
+import { ResetMailerComponent } from './auth/reset-mailer/reset-mailer.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthComponent } from './auth/auth/auth.component';
+//import { AuthModule } from './auth/auth.module';
 
 // Make sure we use fontawesome everywhere in Form.io renderers.
 const Formio = require('formiojs').Formio;
@@ -20,7 +24,11 @@ Formio.icons = 'fontawesome';
   declarations: [
     AppComponent,
     HomeComponent,
-    WizardComponent
+    WizardComponent,
+    ResetMailerComponent,
+    ResetPasswordComponent,
+    LoginComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

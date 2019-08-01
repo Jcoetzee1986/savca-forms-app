@@ -3,8 +3,8 @@ import { AuthConfig, AppConfig } from '../../config';
 
 @Component({
   selector: 'app-reset-mailer',
-  templateUrl: './reset-mailer.component.html',
-  styleUrls: ['./reset-mailer.component.scss']
+  templateUrl: './reset-mailer.component.html'//,
+  //styleUrls: ['./reset-mailer.component.scss']
 })
 export class ResetMailerComponent implements OnInit {
   reset = false;
